@@ -20,16 +20,4 @@ const galleryMarkup = galleryItems
 galleryContainer.innerHTML = galleryMarkup;
 
 
-galleryContainer.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    if (event.target.tagName === 'IMG') {
-        const sourceUrl = event.target.dataset.source;
-
-        const lightbox = new SimpleLightbox('.gallery a', {});
-
-        lightbox.open({ startAt: galleryItems.findIndex((item) => item.original === sourceUrl) });
-    }
-});
-
-console.log(galleryItems);
+const lightbox = new SimpleLightbox('.gallery a', { captionsData: "alt", captionDelay: 250 });
